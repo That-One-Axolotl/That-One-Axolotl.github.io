@@ -3,6 +3,7 @@ body {
         color: #77878B;
         padding-left: 25px;
         padding-right: 25px;
+        align-items: center;
     }
 #header{
     position: absolute;
