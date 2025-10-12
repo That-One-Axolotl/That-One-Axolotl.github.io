@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Projects</title>
+        <link rel="stylesheet" type="text/css" href="../../styles.css">
+    </head>
+    <body>
+        <div id="header">
+            <h1>Welcome to My Projects page!</h1>
+            <h2>This is where I put anything I make, big or absolutely useless</h2>
+        </div>
+        <h2 style="margin-top: 175px;">Bigger projects</h2>
+        <div id = "bigger-projects">
+            
+        </div>
+        <h2>Smaller projects</h2>
+        <div id = "smaller-projects">
+
+        </div>
+    </body>
+</html>
+
+<script>
+    fetch('projects.json')
+    .then(response => {
+        if (!response.ok) {
+        throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(projects => {
+        console.log('Loaded projects:', projects);
+        projects.forEach(project => {
+            const title = project.name;
+            const image = project.image;
+            const url = project.url;
+            const container = "bigger-projects";
+            createProjectDiv(title, image, url, container);
+        });
+    })
+    .catch(error => {
+        console.error('Error loading JSON:', error);
+    });
+
+    function createProjectDiv(title, image, url, containerName){
+        console.log(title, image, url);
+        const div = document.createElement("div");
+        const container = document.getElementById(containerName);
+        div.textContent = title;
+        container.appendChild(div);
+    }
+
+</script>
