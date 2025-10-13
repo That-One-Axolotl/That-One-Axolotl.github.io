@@ -2,6 +2,7 @@
     {
         "name": "Un-named game",
         "image": "none",
-        "url": "none"
+        "url": "none",
+        "description": "A platformer game I'm working on. . . "
     }
 ]

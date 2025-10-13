@@ -20,58 +20,99 @@
     </body>
 </html>
 
-<script>
-    fetch('projects.json')
-    .then(response => {
-        if (!response.ok) {
-        throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(projects => {
-        console.log('Loaded projects:', projects);
-        projects.forEach(project => {
-            const title = project.name;
-            const image = project.image;
-            const url = project.url;
-            const container = "bigger-projects";
-            createProjectDiv(title, image, url, container);
-        });
-    })
-    .catch(error => {
-        console.error('Error loading JSON:', error);
-    });
-
-    fetch('small-projects.json')
-    .then(response => {
-        if (!response.ok) {
-        throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(projects => {
-        console.log('Loaded projects:', projects);
-        projects.forEach(project => {
-            const title = project.name;
-            const image = project.image;
-            const url = project.url;
-            const container = "smaller-projects";
-            createProjectDiv(title, image, url, container);
-        });
-    })
-    .catch(error => {
-        console.error('Error loading JSON:', error);
-    });
-
-    function createProjectDiv(title, image, url, containerName){
-        console.log(title, image, url);
-        const div = document.createElement("div");
-        const header = document.createElement("h3");
-        const text = document.createElement("p");
-        const image = document.createElement("img");
-        const container = document.getElementById(containerName);
-        div.textContent = title;
-        container.appendChild(div);
+<style>
+    .projectContainer{
+        display: block;
+        border: 2px solid #488286;
+        border-radius: 15px;
+        width: 250px;
+        height: 250px;
     }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        fetch('projects.json')
+        .then(response => {
+            if (!response.ok) {
+            throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(projects => {
+            console.log('Loaded projects:', projects);
+            projects.forEach(project => {
+                const title = project.name;
+                const image = project.image;
+                const url = project.url;
+                const description = project.description;
+                const container = "bigger-projects";
+                createProjectDiv(title, image, url, description, container);
+            });
+        })
+        .catch(error => {
+            console.error('Error loading JSON:', error);
+        });
+
+        fetch('small-projects.json')
+        .then(response => {
+            if (!response.ok) {
+            throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(projects => {
+            console.log('Loaded projects:', projects);
+            projects.forEach(project => {
+                const title = project.name;
+                const image = project.image;
+                const url = project.url;
+                const description = project.description;
+                const container = "smaller-projects";
+                createProjectDiv(title, image, url, description, container);
+            });
+        })
+        .catch(error => {
+            console.error('Error loading JSON:', error);
+        });
+
+        function createProjectDiv(title, image, url, description, containerName){
+            console.log(title, image, url);
+            const div = document.createElement("div");
+            const header = document.createElement("h3");
+            const text = document.createElement("p");
+            const link = document.createElement("a");
+            const projectImage = document.createElement("img");
+            const container = document.getElementById(containerName);
+
+            //style
+            div.classList.add("projectContainer")
+
+            //content
+            
+            header.textContent = title;
+
+            text.textContent = description;
+            text.style.fontSize = "15px";
+
+            if(url != "none"){
+                link.href = url;
+                link.textContent = "View Project"
+            }
+
+            if(image != "none"){
+                projectImage.src = image;
+                projectImage.style.width = "150px"
+            }
+
+            //appending
+            div.appendChild(header);
+            div.appendChild(projectImage);
+            div.appendChild(text);
+            div.appendChild(link);
+            
+            container.appendChild(div);
+        }
+    })
 
 </script>
