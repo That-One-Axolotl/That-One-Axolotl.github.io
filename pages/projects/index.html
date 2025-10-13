@@ -42,9 +42,33 @@
         console.error('Error loading JSON:', error);
     });
 
+    fetch('small-projects.json')
+    .then(response => {
+        if (!response.ok) {
+        throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(projects => {
+        console.log('Loaded projects:', projects);
+        projects.forEach(project => {
+            const title = project.name;
+            const image = project.image;
+            const url = project.url;
+            const container = "smaller-projects";
+            createProjectDiv(title, image, url, container);
+        });
+    })
+    .catch(error => {
+        console.error('Error loading JSON:', error);
+    });
+
     function createProjectDiv(title, image, url, containerName){
         console.log(title, image, url);
         const div = document.createElement("div");
+        const header = document.createElement("h3");
+        const text = document.createElement("p");
+        const image = document.createElement("img");
         const container = document.getElementById(containerName);
         div.textContent = title;
         container.appendChild(div);
