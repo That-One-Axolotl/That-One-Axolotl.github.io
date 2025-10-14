@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Wasting Time</title>
+    </head>
+    <body>
+        <h1 id = "text" style="text-align: center;">You have wasted 0 : 0 : 0 seconds here</h1>
+    </body>
+</html>
+
+<script>
+    let timePassed = 0;
+    let hoursPassed = 0;
+    let minutesPassed = 0;
+    let secondsPassed = 0;
+    let typePassed = "seconds";
+
+    const startDate = new Date();
+    const text = document.getElementById("text");
+
+    setInterval(() =>{
+        const date = new Date();
+        timePassed = date - startDate;
+        timePassed = Math.round(timePassed / 1000);
+        console.log(timePassed);
+
+        hoursPassed = Math.floor(timePassed / 360);
+        minutesPassed = Math.floor(timePassed / 60) - (hoursPassed * 60);
+        secondsPassed = timePassed - (hoursPassed * 60) - (minutesPassed * 60);
+
+        console.log(hoursPassed, minutesPassed, secondsPassed);
+
+        if(hoursPassed != 0){
+            typePassed = "hours";
+        }
+        else{
+            if(minutesPassed != 0){
+                typePassed = "minutes";
+            }
+            else{
+                typePassed = "seconds";
+            }
+        }
+
+        text.textContent = `You have wasted ${hoursPassed} : ${minutesPassed} : ${secondsPassed} ${typePassed} here`;
+
+    }, 1000)
+</script>
