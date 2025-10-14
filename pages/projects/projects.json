@@ -1,8 +1,8 @@
 [
     {
         "name": "Un-named game",
-        "image": "../../images/project_images/unnamed-game.png",
-        "url": "../projects/big-projects/unnamed-game",
+        "image": "/images/project_images/unnamed-game.png",
+        "url": "../projects/big-projects/unnamed-game.html",
         "description": "A platformer game I'm working on. . . "
     }
 ]
