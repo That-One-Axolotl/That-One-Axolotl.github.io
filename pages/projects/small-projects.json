@@ -1,8 +1,8 @@
 [
     {
         "name": "Wordle solver",
-        "image": "none",
-        "url": "none",
+        "image": "../../images/project_images/wordle-solver.png",
+        "url": "../projects/small-projects/wordle-solver",
         "description": "Something I made for fun because I am bad at english"
     }
 ]
