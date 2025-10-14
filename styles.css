@@ -4,6 +4,7 @@ body {
         padding-left: 25px;
         padding-right: 25px;
         text-align: center;
+        font-family: 'Trebuchet MS', sans-serif;
     }
 #header{
     position: absolute;
