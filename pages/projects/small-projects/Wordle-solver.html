@@ -5,6 +5,17 @@
         <link rel="stylesheet" type="text/css" href="../../../styles.css">
     </head>
     <body>
-        <h1>Working on this page!</h1>
+        <div id = "header">
+            <h1>Wordle Solver</h1>
+            <h2>Because I am really REALLY stupid</h2>
+        </div>
+        <h2 style="margin-top: 175px;">How it's used</h2>
+        <p>The program reccomends a starting word, you input it into Wordle, and tell it what you got (ex: ⬜⬜🟩🟨⬜ would be rrgyr, r for grey, g for green, y for yellow), it then gives you another word to input, and it continues.</p>
+        <h2>How it works</h2>
+        <p>Basically, it just guesses a random word out of all of the possible words with the give information. It figures this out by storing the answers you gave it. when you input r for grey, it finds the letter it's corrosponding to and adds it to the array of disallowed characters. When its green or yellow, it instead stores them in a dictionary, with the letter as the term and the index as the definition. I do admit, this could have been done better because you can only store one index per letter, but I made this in like 30 minutes and I couldn't be bothered lol.</p>
+        <p>When it comes time to make a decision, it filters the list of potential words and removes any words that contain grey letters, as well as any words that don't have yellow letter (that are in a different spot than the stored index) and any words that dont have the green letters in the correct spot.</p>
+        <h2>Conclusion</h2>
+        <p>Over all, it was quite simple, but has been fun to play around with</p>
+        <a href="../../../files/wordle-solver.zip" download="wordle-solver.zip">you can download it here</a>
     </body>
 </html>
