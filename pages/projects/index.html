@@ -11,19 +11,28 @@
         </div>
         <h5>Be warned: terrible code ahead</h5>
         <h2 style="margin-top: 175px;">Bigger projects</h2>
-        <div id = "bigger-projects">
+        <div id = "bigger-projects" class = "grid">
             
         </div>
         <h2>Smaller projects</h2>
-        <div id = "smaller-projects">
+        <div id = "smaller-projects" class = "grid">
+
+        </div>
+        <h2>Games</h2>
+        <div id = "games" class = "grid">
 
         </div>
     </body>
 </html>
 
 <style>
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 10px;
+    }
+
     .projectContainer{
-        display: block;
         border: 2px solid #488286;
         border-radius: 15px;
         width: 250px;
@@ -70,6 +79,28 @@
                 const url = project.url;
                 const description = project.description;
                 const container = "smaller-projects";
+                createProjectDiv(title, image, url, description, container);
+            });
+        })
+        .catch(error => {
+            console.error('Error loading JSON:', error);
+        });
+
+        fetch('games.json')
+        .then(response => {
+            if (!response.ok) {
+            throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(projects => {
+            console.log('Loaded projects:', projects);
+            projects.forEach(project => {
+                const title = project.name;
+                const image = project.image;
+                const url = project.url;
+                const description = project.description;
+                const container = "games";
                 createProjectDiv(title, image, url, description, container);
             });
         })

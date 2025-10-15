@@ -1,0 +1,14 @@
+[
+    {
+        "name": "True is False",
+        "image": "/images/Project_images/coin.png",
+        "url": "https://that-one-axolotl.github.io/falseistrue",
+        "description": "Basically just guessing a coin flip"
+    },
+    {
+        "name": "Time Wasted",
+        "image": "/images/Project_images/clock.png",
+        "url": "/pages/games/Wasting-Time.html",
+        "description": "Count how much time you waste"
+    }
+]
