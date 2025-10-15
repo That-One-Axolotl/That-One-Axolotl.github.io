@@ -8,7 +8,7 @@
     {
         "name": "Time Wasted",
         "image": "/images/Project_images/clock.png",
-        "url": "/pages/games/Wasting-Time.html",
+        "url": "/pages/games/Wasting-Time",
         "description": "Count how much time you waste"
     }
 ]
