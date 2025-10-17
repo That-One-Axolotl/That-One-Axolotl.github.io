@@ -28,7 +28,7 @@
 
         hoursPassed = Math.floor(timePassed / 3600);
         minutesPassed = Math.floor(timePassed / 60) - (hoursPassed * 60);
-        secondsPassed = timePassed - (hoursPassed * 60) - (minutesPassed * 60);
+        secondsPassed = timePassed - (hoursPassed * 3600) - (minutesPassed * 60);
 
         console.log(hoursPassed, minutesPassed, secondsPassed);
 
