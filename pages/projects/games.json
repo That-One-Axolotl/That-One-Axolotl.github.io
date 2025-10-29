@@ -11,10 +11,4 @@
         "url": "/pages/games/Wasting-Time",
         "description": "Count how much time you waste"
     }
-    {
-        "name": "The Best Game Ever",
-        "image": "none",
-        "url": "/pages/Thegame.html",
-        "description": "This is my  crowning acheivement"
-    }
 ]
