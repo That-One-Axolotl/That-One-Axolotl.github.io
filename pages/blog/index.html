@@ -14,6 +14,12 @@
             <div class="sidebar">
             </div>
             <div class="blogs">
+                <div class = "thoughts">
+                    
+                </div>
+                <div class = "items">
+
+                </div>
             </div>
         </div>
     </body>
@@ -32,7 +38,46 @@
         background-color: blue;
         margin-top: 155px;
         margin-left: 50px;
+        padding-top: 20px;
         width: 75vw;
         height: 100vh;
     }
+    .thoughts {
+        background-color: blueviolet;
+        margin: 0 auto;
+        width: 65vw;
+        height: 20vh;
+    }
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        fetch('blogs.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(blogs => {
+            console.log('Loaded projects:', blogs);
+            blogs.forEach(blog => {
+                const title = blog.title;
+                const url = project.url;
+                const description = project.description;
+                const container = "items";
+                createBlogDiv(title, url, description, container);
+            });
+        })
+        .catch(error => {
+            console.error('Error loading JSON:', error);
+        });
+    })
+
+    function createBlogDiv (title, url, description, container){
+        const head = document.createElement("h2");
+        const text = document.createElement("p");
+        const link = document.createElement("a");
+        
+    }
+</script>

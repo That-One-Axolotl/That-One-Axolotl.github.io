@@ -34,7 +34,7 @@ h2{
 
 @media (max-width: 768px) {
   img {
-    width: 100%; /* Adjust width to fit the screen */
-    height: auto; /* Let height adjust proportionally */
+    width: 100%;
+    height: auto;
   }
 }
